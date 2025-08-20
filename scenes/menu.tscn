@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxp6d8ps8eho4"]
+
+[ext_resource type="PackedScene" uid="uid://de0hkvm00nl63" path="res://scenes/game_scene_base.tscn" id="1_yqeox"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_vjb58"]
+[ext_resource type="PackedScene" uid="uid://erf0dt51r4ks" path="res://scenes/menu_ui.tscn" id="3_con2f"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vjb58"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_con2f"]
+sky_material = SubResource("ProceduralSkyMaterial_vjb58")
+
+[sub_resource type="Environment" id="Environment_mhnvy"]
+background_mode = 2
+sky = SubResource("Sky_con2f")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ytvr"]
+albedo_color = Color(0.19647, 0.59, 0.1829, 1)
+
+[node name="Menu" instance=ExtResource("1_yqeox")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_mhnvy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="1"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 3.84477, 0)
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." index="3"]
+use_collision = true
+collision_mask = 6
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+material_override = SubResource("StandardMaterial3D_4ytvr")
+transparency = 1.0
+size = Vector3(8, 0.25, 8)
+
+[node name="Viewport2Din3D" parent="." index="4" instance=ExtResource("2_vjb58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3176, -3.5)
+scene = ExtResource("3_con2f")
+scene_properties_keys = PackedStringArray("menu_ui.gd")
