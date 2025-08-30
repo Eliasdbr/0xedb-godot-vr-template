@@ -1,0 +1,9 @@
+[gd_resource type="PlaneMesh" load_steps=2 format=3 uid="uid://16by7dn0k5dt"]
+
+[ext_resource type="Material" uid="uid://ce07w7b7gm2lo" path="res://resources/particles/particle_material_confetti.tres" id="1_reiug"]
+
+[resource]
+lightmap_size_hint = Vector2i(2, 2)
+material = ExtResource("1_reiug")
+size = Vector2(0.02, 0.02)
+orientation = 2
