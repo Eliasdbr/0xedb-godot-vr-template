@@ -1,20 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://de0hkvm00nl63"]
+[gd_scene load_steps=10 format=3 uid="uid://de0hkvm00nl63"]
 
 [ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_skdfn"]
 [ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_44b8l"]
 [ext_resource type="PackedScene" uid="uid://bdwmserhqai5h" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" id="3_34ykg"]
-[ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="3_d5mp3"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_0lncb"]
 [ext_resource type="PackedScene" uid="uid://bft3xyxs31ci3" path="res://addons/godot-xr-tools/functions/function_pose_detector.tscn" id="4_ctajj"]
-[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="6_ctajj"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="6_xchbp"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="7_0lncb"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="7_d5mp3"]
 [ext_resource type="PackedScene" uid="uid://btf05hjpw6k05" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" id="7_mjngo"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0lncb"]
-radius = 0.1
-height = 1.7
 
 [node name="GameSceneBase" instance=ExtResource("1_skdfn")]
 
@@ -27,14 +21,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
 [node name="FunctionPoseDetector" parent="XROrigin3D/LeftHand" index="1" instance=ExtResource("4_ctajj")]
 
-[node name="FunctionTeleport" parent="XROrigin3D/LeftHand" index="2" instance=ExtResource("3_d5mp3")]
-visible = false
-enabled = false
-teleport_button_action = "by_button"
-
-[node name="MovementDirect" parent="XROrigin3D/LeftHand" index="3" instance=ExtResource("6_ctajj")]
-
-[node name="FunctionPickup" parent="XROrigin3D/LeftHand" index="4" instance=ExtResource("4_0lncb")]
+[node name="FunctionPickup" parent="XROrigin3D/LeftHand" index="2" instance=ExtResource("4_0lncb")]
 
 [node name="RightPhysicsHand" parent="XROrigin3D/RightHand" index="0" instance=ExtResource("7_mjngo")]
 
@@ -50,7 +37,4 @@ laser_length = 1
 [node name="FunctionPickup" parent="XROrigin3D/RightHand" index="4" instance=ExtResource("4_0lncb")]
 
 [node name="PlayerBody" parent="XROrigin3D" index="3" instance=ExtResource("7_d5mp3")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/PlayerBody" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.853494, 0)
-shape = SubResource("CapsuleShape3D_0lncb")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.049787, 0)

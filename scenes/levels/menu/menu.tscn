@@ -1,33 +1,88 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxp6d8ps8eho4"]
+[gd_scene load_steps=21 format=4 uid="uid://dxp6d8ps8eho4"]
 
 [ext_resource type="PackedScene" uid="uid://de0hkvm00nl63" path="res://scenes/common/game_scene_base.tscn" id="1_iv130"]
 [ext_resource type="Script" uid="uid://ctlbl3gdxq1wc" path="res://scenes/levels/menu/menu_logic.gd" id="2_ms4km"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="3_apglg"]
+[ext_resource type="Texture2D" uid="uid://xwmek8kygho8" path="res://assets/skies/Panorama_Island_02-2048x1024.png" id="3_hiv5r"]
+[ext_resource type="LightmapGIData" uid="uid://dhjead21s7h58" path="res://scenes/levels/menu/menu.lmbake" id="4_8t0wt"]
 [ext_resource type="PackedScene" uid="uid://erf0dt51r4ks" path="res://scenes/ui/menu_ui.tscn" id="4_hiv5r"]
-[ext_resource type="PackedScene" uid="uid://dbv1hvxufc1al" path="res://scenes/interactables/push_button.tscn" id="5_um8id"]
-[ext_resource type="PlaneMesh" uid="uid://16by7dn0k5dt" path="res://resources/particles/particle_mesh_confetti.tres" id="7_apglg"]
+[ext_resource type="AudioStream" uid="uid://yfdp6o4rdygj" path="res://resources/sounds/ambience/wind_ambience.ogg" id="4_uq7k3"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="5_kh7hy"]
+[ext_resource type="PackedScene" uid="uid://biit1gq258rgn" path="res://scenes/environment/tree_conifer.tscn" id="10_uq7k3"]
+[ext_resource type="PackedScene" uid="uid://ygsomx4acx0v" path="res://scenes/environment/medium_rock.tscn" id="11_kh7hy"]
+[ext_resource type="PackedScene" uid="uid://cmbugyrf33vkv" path="res://scenes/environment/grass_single_sided.tscn" id="11_l4ug3"]
+[ext_resource type="Material" uid="uid://hcoxy408chc3" path="res://resources/materials/pattern_grass.tres" id="13_jxiv5"]
+[ext_resource type="Material" uid="uid://cc6j0bs18x6wu" path="res://resources/materials/pattern_rock.tres" id="14_kh7hy"]
+[ext_resource type="PackedScene" uid="uid://ttcmab2kyntb" path="res://scenes/environment/fireplace.tscn" id="15_bjppn"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vjb58"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_um8id"]
+panorama = ExtResource("3_hiv5r")
 
-[sub_resource type="Sky" id="Sky_con2f"]
-sky_material = SubResource("ProceduralSkyMaterial_vjb58")
+[sub_resource type="Sky" id="Sky_8t0wt"]
+sky_material = SubResource("PanoramaSkyMaterial_um8id")
 
 [sub_resource type="Environment" id="Environment_mhnvy"]
 background_mode = 2
-sky = SubResource("Sky_con2f")
+sky = SubResource("Sky_8t0wt")
 tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.61, 0.5185, 0.5185, 1)
+fog_density = 0.015
+fog_sky_affect = 0.16
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ytvr"]
-albedo_color = Color(0.19647, 0.59, 0.1829, 1)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8t0wt"]
+points = PackedVector3Array(8, -4, 0.999413, 5.99941, 0, -2.00117, 3.9999, 0, 0.999413, 1.99931, -4, 4, 8, -4, -7.00088, 5.99941, 0, -6.00069, 1.99931, 0, 1.99961, -1.00049, -4, 0.999413, 2.99961, -4, -9, 2.99961, 0, -8.00108, -0.00019598, 0, -0.00078392, -2.00078, 0, -3.0001, -3, -4, -3.0001, -1.00049, -4, -7.00088, -0.00019598, 0, -6.00069)
 
-[sub_resource type="Curve" id="Curve_apglg"]
-_limits = [-1.0, 1.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+[sub_resource type="ArrayMesh" id="ArrayMesh_6hxjg"]
+_surfaces = [{
+"aabb": AABB(-2, 0, -8, 8, 1e-05, 10),
+"format": 34359738369,
+"material": ExtResource("13_jxiv5"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("AAAAwAAAAAAAAEDAAAAAAAAAAAAAAMDAAABAQAAAAAAAAADBAAAAwAAAAAAAAEDAAABAQAAAAAAAAADBAADAQAAAAAAAAMDAAAAAwAAAAAAAAEDAAADAQAAAAAAAAMDAAADAQAAAAAAAAADAAAAAwAAAAAAAAEDAAADAQAAAAAAAAADAAACAQAAAAAAAAIA/AAAAwAAAAAAAAEDAAACAQAAAAAAAAIA/AAAAQAAAAAAAAABAAAAAwAAAAAAAAEDAAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAA")
+}, {
+"aabb": AABB(-3, -4, -9, 11, 4, 13),
+"format": 34359738369,
+"material": ExtResource("14_kh7hy"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAMDAAAAAwAAAAAAAAEDAAABAwAAAgMAAAEDAAAAAAAAAAAAAAMDAAABAwAAAgMAAAEDAAACAvwAAgMAAAODAAABAQAAAAAAAAADBAAAAAAAAAAAAAMDAAACAvwAAgMAAAODAAABAQAAAAAAAAADBAACAvwAAgMAAAODAAABAQAAAgMAAABDBAADAQAAAAAAAAMDAAABAQAAAAAAAAADBAABAQAAAgMAAABDBAADAQAAAAAAAAMDAAABAQAAAgMAAABDBAAAAQQAAgMAAAODAAADAQAAAAAAAAADAAADAQAAAAAAAAMDAAAAAQQAAgMAAAODAAADAQAAAAAAAAADAAAAAQQAAgMAAAODAAAAAQQAAgMAAAIA/AACAQAAAAAAAAIA/AADAQAAAAAAAAADAAAAAQQAAgMAAAIA/AACAQAAAAAAAAIA/AAAAQQAAgMAAAIA/AADAQAAAgMAAAABAAAAAQAAAAAAAAABAAACAQAAAAAAAAIA/AADAQAAAgMAAAABAAAAAQAAAAAAAAABAAADAQAAAgMAAAABAAAAAQAAAgMAAAIBAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAgMAAAIBAAAAAAAAAAAAAAAAAAAAAQAAAgMAAAIBAAACAvwAAgMAAAIA/AAAAwAAAAAAAAEDAAAAAAAAAAAAAAAAAAACAvwAAgMAAAIA/AAAAwAAAAAAAAEDAAACAvwAAgMAAAIA/AABAwAAAgMAAAEDA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l4ug3"]
+lightmap_size_hint = Vector2i(294, 398)
+_surfaces = [{
+"aabb": AABB(-2, 0, -8, 8, 1e-05, 10),
+"attribute_data": PackedByteArray("LGMG/wAAAEAAAEBAGCH3PgUtuz4sYwb/AAAAAAAAwEBSJm4+Bi27PixjBv8AAEDAAAAAQVzp3jrgTZc+LGMG/wAAwMAAAMBAlOveOssm6D0sYwb/AADAwAAAAEBSJm4+z6mkOixjBv8AAIDAAACAvxgh9z6dqqQ6LGMG/wAAAMAAAADAcwoeP3W5aj0sYwb/AAAAAAAAAADEMBQ/8ypKPg=="),
+"format": 34359742527,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAAADAAQAAAAEAAUAAAAFAAYAAAAGAAcA"),
+"material": ExtResource("13_jxiv5"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAwAAAAAAAAEDAAAAAAAAAAAAAAMDAAABAQAAAAAAAAADBAADAQAAAAAAAAMDAAADAQAAAAAAAAADAAACAQAAAAAAAAIA/AAAAQAAAAAAAAABAAAAAAAAAAAAAAAAAAID//wAA/78AgP//AAD/vwCA//8AAP+/AID//wAA/78AgP//AAD/vwCA//8AAP+/AID//wAA/78AgP//AAD/vw==")
+}, {
+"aabb": AABB(-3, -4, -9, 11, 4, 13),
+"attribute_data": PackedByteArray("Yz0G/wAAwEAAAAAAb9CgPjC3GD9jPQb/AABAQAAAAAAOVYc9MVYbP2M9Bv8AAEBAAACAQIjGejwGhck+Yz0G/wAAwEAAAAAAb9CgPjC3GD9jPQb/AABAQAAAgECIxno8BoXJPmM9Bv8AAOBAAACAQGhfoT4BCb8+Yz0G/wAAQMAAAAAAC3MOPzFWGz9jPQb/AAAAAAAAAABv0KA+MLcYP2M9Bv8AAIA/AACAQGhfoT4BCb8+Yz0G/wAAQMAAAAAAC3MOPzFWGz9jPQb/AACAPwAAgEBoX6E+AQm/PmM9Bv8AAEDAAACAQM2OGj8Ghck+Yz0G/wAAwMAAAAAAYqclP6JuRj9jPQb/AABAwAAAAACSiGQ/Pp1JP2M9Bv8AAEDAAACAQKuqaj+rrX8/Yz0G/wAAwMAAAAAAYqclP6JuRj9jPQb/AABAwAAAgECrqmo/q61/P2M9Bv8AAADBAACAQE7BCz+rrX8/Yz0G/wAAAEAAAAAAEfInP/SuCD9jPQb/AADAQAAAAABzCm4/9K4IP2M9Bv8AAOBAAACAQIuQfz+lgEQ/Yz0G/wAAgL8AAIBAkb/mPqWARD9jPQb/AACAwAAAAABal9c+UrZJP2M9Bv8AAMDAAAAAAK507z4OY3U/Yz0G/wAAAMEAAIBA1ofGPQ5jdT9jPQb/AACAwAAAAABal9c+UrZJP2M9Bv8AAADBAACAQNaHxj0OY3U/Yz0G/wAAwMAAAIBAzKTbPW0DWD9jPQb/AAAAwAAAAACW3tw+s1YsP2M9Bv8AAIDAAAAAAFqX1z5Stkk/Yz0G/wAAwMAAAIBAzKTbPW0DWD9jPQb/AAAAwAAAgEBb7wI+LkQdP2M9Bv8AAAAAAAAAAMAPaT833J8+Yz0G/wAAAMAAAAAAq6pqPw3JLj5jPQb/AAAAwAAAgEDrkx8/sNG7PWM9Bv8AAIA/AACAQIorHT/1p5s+Yz0G/wAAQEAAAAAAq6pqPwwF/T5jPQb/AAAAAAAAAADAD2k/N9yfPmM9Bv8AAIC/AACAQIorHT/1p5s+Yz0G/wAAQEAAAAAAq6pqPwwF/T5jPQb/AACAvwAAgECKKx0/9aebPmM9Bv8AAEBAAACAQE38IT/3wAY/"),
+"format": 34359742527,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAEgAUABUAFgAXABgAGQAaABsAHAAdAB4AHAAeAB8AIAAhACIAIAAiACMAJAAlACYAJwAoACkA"),
+"material": ExtResource("14_kh7hy"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 42,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAMDAAAAAwAAAAAAAAEDAAABAwAAAgMAAAEDAAAAAAAAAAAAAAMDAAABAwAAAgMAAAEDAAACAvwAAgMAAAODAAABAQAAAAAAAAADBAAAAAAAAAAAAAMDAAACAvwAAgMAAAODAAABAQAAAAAAAAADBAACAvwAAgMAAAODAAABAQAAAgMAAABDBAADAQAAAAAAAAMDAAABAQAAAAAAAAADBAABAQAAAgMAAABDBAADAQAAAAAAAAMDAAABAQAAAgMAAABDBAAAAQQAAgMAAAODAAADAQAAAAAAAAADAAADAQAAAAAAAAMDAAAAAQQAAgMAAAODAAAAAQQAAgMAAAIA/AACAQAAAAAAAAIA/AADAQAAAAAAAAADAAAAAQQAAgMAAAIA/AACAQAAAAAAAAIA/AAAAQQAAgMAAAIA/AADAQAAAgMAAAABAAAAAQAAAAAAAAABAAACAQAAAAAAAAIA/AADAQAAAgMAAAABAAAAAQAAAgMAAAIBAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAgMAAAIBAAACAvwAAgMAAAIA/AAAAwAAAAAAAAEDAAAAAAAAAAAAAAAAAAACAvwAAgMAAAIA/AAAAwAAAAAAAAEDAAACAvwAAgMAAAIA/AABAwAAAgMAAAEDAvBVfvP//mRm8FV+8//+ZGbwVX7z//5kZvBVfvP//VRW8FV+8//9VFbwVX7z//1UVvBVa2S8z/7+8FVrZLzP/v7wVWtkvM/+/vBVa2aoq/7+8FVrZqir/v7wVWtmqKv+/Zebd3QAAmNll5t3dAACY2WXm3d0AAJjZZebd3QAASNJl5t3dAABI0mXm3d0AAEjSVNWqqv////9U1aqq/////1TVqqr/////VNWqqv////+qqqqqzEz/P6qqqqrMTP8/qqqqqsxM/z+qqqqqqir/P6qqqqqqKv8/qqqqqqoq/z//n/+fqir/P/+f/5+qKv8//5//n6oq/z//n/+fqir/P8xMmZkAAP8fzEyZmQAA/x/MTJmZAAD/H8xMmZkAAP8fYDy7lQAAmRlgPLuVAACZGWA8u5UAAJkZYDy7lQAAVRVgPLuVAABVFWA8u5UAAFUV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6hxjg")
 
 [node name="Menu" instance=ExtResource("1_iv130")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="MenuLogic" type="Node3D" parent="." index="0"]
 script = ExtResource("2_ms4km")
@@ -36,48 +91,75 @@ script = ExtResource("2_ms4km")
 environment = SubResource("Environment_mhnvy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="2"]
-transform = Transform3D(-0.951648, 0.28098, 0.124162, -0.0367742, -0.505482, 0.862053, 0.304981, 0.815805, 0.491374, 0, 3.84477, 0.061677)
+transform = Transform3D(0.692419, 0.459661, 0.556118, 0.420533, -0.88344, 0.206607, 0.586266, 0.0908074, -0.805013, 1.63038e-07, 4.28032, -1.80326)
+light_color = Color(1, 0.797, 0.71, 1)
+light_energy = 2.0
+light_bake_mode = 1
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." index="4"]
-use_collision = true
-collision_mask = 6
+[node name="WindAmbiece" type="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("4_uq7k3")
+autoplay = true
+parameters/looping = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
-transparency = 1.0
-size = Vector3(8, 0.25, 8)
-material = SubResource("StandardMaterial3D_4ytvr")
+[node name="XROrigin3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00562353, 0)
+
+[node name="MovementDirect" parent="XROrigin3D/LeftHand" index="3" instance=ExtResource("5_kh7hy")]
+order = 1
+max_speed = 2.0
+strafe = true
+input_action = "thumbstick"
 
 [node name="Viewport2Din3D" parent="." index="5" instance=ExtResource("3_apglg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3176, -3.5)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4.36148e-07, 2.76298, -8.48895)
 scene = ExtResource("4_hiv5r")
+unshaded = true
 scene_properties_keys = PackedStringArray("menu_ui.gd")
 
-[node name="PushButton" parent="." index="6" instance=ExtResource("5_um8id")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925196, -0.601624)
+[node name="WorldGeometry" type="Node3D" parent="." index="6"]
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="." index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.945326, -0.822587)
-emitting = false
-amount = 32
-lifetime = 3.0
-explosiveness = 1.0
-mesh = ExtResource("7_apglg")
-particle_flag_align_y = true
-direction = Vector3(0, 1, 0)
-spread = 15.0
-gravity = Vector3(0, -3, 0)
-initial_velocity_min = 3.0
-initial_velocity_max = 4.0
-angular_velocity_max = 1.0
-tangential_accel_min = -1.0
-tangential_accel_max = 1.0
-damping_min = 1.5
-damping_max = 2.0
-color = Color(1, 0, 0, 1)
-hue_variation_min = -1.0
-hue_variation_max = 1.0
-hue_variation_curve = SubResource("Curve_apglg")
+[node name="Static" type="Node3D" parent="WorldGeometry" index="0"]
 
-[connection signal="button_pressed" from="PushButton" to="MenuLogic" method="_on_push_button_button_pressed"]
-[connection signal="button_released" from="PushButton" to="MenuLogic" method="_on_push_button_button_released"]
+[node name="Block_0" type="Node3D" parent="WorldGeometry/Static" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, -4)
+metadata/_edit_group_ = true
+
+[node name="Block_0_col" type="StaticBody3D" parent="WorldGeometry/Static/Block_0" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldGeometry/Static/Block_0/Block_0_col" index="0"]
+visible = false
+shape = SubResource("ConvexPolygonShape3D_8t0wt")
+
+[node name="Fireplace" parent="WorldGeometry/Static" index="1" instance=ExtResource("15_bjppn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8614, 0, 1.77119)
+
+[node name="Tree_4_A_Color12" parent="WorldGeometry/Static" index="2" instance=ExtResource("10_uq7k3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59886, 0, -3.48206)
+
+[node name="Tree_4_A_Color13" parent="WorldGeometry/Static" index="3" instance=ExtResource("10_uq7k3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86415, 0, 1.88981)
+
+[node name="Rock_3_O_Color12" parent="WorldGeometry/Static" index="4" instance=ExtResource("11_kh7hy")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.54918e-07, 0.256249, 2.91592)
+
+[node name="Block_0_mesh" type="MeshInstance3D" parent="WorldGeometry/Static" index="5"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, -4)
+mesh = SubResource("ArrayMesh_l4ug3")
+skeleton = NodePath("../Block_0")
+
+[node name="Grass_1_D_Singlesided_Color12" parent="WorldGeometry/Static" index="6" instance=ExtResource("11_l4ug3")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.03286, -0.0159843, -2.32845)
+
+[node name="Grass_1_D_Singlesided_Color13" parent="WorldGeometry/Static" index="7" instance=ExtResource("11_l4ug3")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.895121, -0.0159843, 1.81689)
+
+[node name="Grass_1_D_Singlesided_Color14" parent="WorldGeometry/Static" index="8" instance=ExtResource("11_l4ug3")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.84408, -0.0159843, -1.90055)
+
+[node name="Grass_1_D_Singlesided_Color15" parent="WorldGeometry/Static" index="9" instance=ExtResource("11_l4ug3")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.12175, -0.0159845, 0.892144)
+
+[node name="LightmapGI" type="LightmapGI" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0191793, 0, -0.00941467)
+supersampling = true
+light_data = ExtResource("4_8t0wt")

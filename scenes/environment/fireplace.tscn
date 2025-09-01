@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=3 uid="uid://ttcmab2kyntb"]
+
+[ext_resource type="PackedScene" uid="uid://cd4hw02rq6qsr" path="res://scenes/environment/small_rock.tscn" id="1_g7d1x"]
+[ext_resource type="AudioStream" uid="uid://imq8wm4j5mp0" path="res://resources/sounds/ambience/fire_ambience.ogg" id="2_u0ldj"]
+
+[sub_resource type="Gradient" id="Gradient_g7d1x"]
+offsets = PackedFloat32Array(0, 0.352201, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.8285, 0.51, 1, 1, 0.333333, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u0ldj"]
+gradient = SubResource("Gradient_g7d1x")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.492877)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6tpw0"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_u0ldj")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_g1amj"]
+material = SubResource("StandardMaterial3D_6tpw0")
+size = Vector2(0.3, 0.4)
+
+[sub_resource type="Curve" id="Curve_ikjv2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.996485, 0.736831), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_hrf1y"]
+offsets = PackedFloat32Array(0, 0.885122)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_u0ldj"]
+offsets = PackedFloat32Array(0, 0.866667, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6tpw0"]
+gradient = SubResource("Gradient_u0ldj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1amj"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_6tpw0")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ikjv2"]
+material = SubResource("StandardMaterial3D_g1amj")
+size = Vector2(0.5, 0.5)
+orientation = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u0ldj"]
+radius = 0.315179
+
+[node name="Fireplace" type="Node3D"]
+
+[node name="SmallRock" parent="." instance=ExtResource("1_g7d1x")]
+transform = Transform3D(-0.128881, 0.0675005, 0.137235, -0.0927922, -0.177171, 0, 0.12157, -0.0636716, 0.145488, 0, 0, 0.25)
+
+[node name="SmallRock2" parent="." instance=ExtResource("1_g7d1x")]
+transform = Transform3D(-0.103519, 0, 0.171125, -0.100084, 0.162227, -0.0605439, -0.138806, -0.116972, -0.0839678, -0.25, 0, 0)
+
+[node name="SmallRock3" parent="." instance=ExtResource("1_g7d1x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.164324, 0, 0.156623)
+
+[node name="SmallRock4" parent="." instance=ExtResource("1_g7d1x")]
+transform = Transform3D(0.0592383, 0.191026, 0, -0.191026, 0.0592383, 0, 0, 0, 0.2, 0, 0, -0.25)
+
+[node name="SmallRock5" parent="." instance=ExtResource("1_g7d1x")]
+transform = Transform3D(0.0774374, 0.178795, 0.0451203, -0.154484, 0.0896236, -0.0900129, -0.100688, 0, 0.172806, 0.157263, 0, -0.149212)
+
+[node name="SmallRock6" parent="." instance=ExtResource("1_g7d1x")]
+transform = Transform3D(0.141421, 0, 0.141421, 0.123571, 0.097264, -0.123571, -0.0687761, 0.174756, 0.0687761, 0.25, 0, 0)
+
+[node name="SmallRock7" parent="." instance=ExtResource("1_g7d1x")]
+transform = Transform3D(0.0590082, 0, 0.191097, 0, 0.2, 0, -0.191097, 0, 0.0590082, -0.178713, 0, -0.171381)
+
+[node name="SmallRock8" parent="." instance=ExtResource("1_g7d1x")]
+transform = Transform3D(0.0854305, 1.90071e-10, -0.180836, 0.126025, 0.143433, 0.0595367, 0.129689, -0.13938, 0.0612679, -0.172348, 0, 0.162436)
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0364744, 0)
+cast_shadow = 0
+amount = 16
+lifetime = 0.5
+mesh = SubResource("QuadMesh_g1amj")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.01
+emission_ring_radius = 0.2
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 9.8, 0)
+radial_accel_min = -2.0
+radial_accel_max = -2.0
+scale_amount_curve = SubResource("Curve_ikjv2")
+color_ramp = SubResource("Gradient_hrf1y")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00449665, 0.290877, -0.00121731)
+light_color = Color(1, 0.701, 0.54, 1)
+light_bake_mode = 1
+omni_attenuation = 2.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.188579, 0)
+stream = ExtResource("2_u0ldj")
+autoplay = true
+max_distance = 6.0
+parameters/looping = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+mesh = SubResource("QuadMesh_ikjv2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.190634, 0)
+shape = SubResource("SphereShape3D_u0ldj")

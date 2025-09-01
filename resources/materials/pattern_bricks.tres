@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cvbq2kjndpfxs"]
+
+[ext_resource type="Texture2D" uid="uid://dy0belv036vyt" path="res://assets/textures/pattern_18.png" id="1_ccg8v"]
+
+[resource]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_ccg8v")
+metallic_specular = 0.0

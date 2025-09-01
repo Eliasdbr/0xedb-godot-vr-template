@@ -17,12 +17,14 @@ config/icon="res://icon.svg"
 
 [audio]
 
+general/default_playback_type.web=0
 general/3d_panning_strength=1.0
 
 [autoload]
 
 XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
 XRToolsRumbleManager="*res://addons/godot-xr-tools/rumble/rumble_manager.gd"
+CyclopsAutoload="*res://addons/cyclops_level_builder/cyclops_global_scene.tscn"
 
 [display]
 
@@ -30,7 +32,7 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+enabled=PackedStringArray("res://addons/cyclops_level_builder/plugin.cfg", "res://addons/godot-xr-tools/plugin.cfg")
 
 [filesystem]
 
