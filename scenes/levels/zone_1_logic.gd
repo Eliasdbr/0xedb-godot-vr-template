@@ -9,4 +9,4 @@ func _on_push_button_button_released(button: Variant) -> void:
 
 
 func _on_push_button_button_pressed(button: Variant) -> void:
-	$"../CPUParticles3D".restart()
+	$"../ConfettiParticles".restart()

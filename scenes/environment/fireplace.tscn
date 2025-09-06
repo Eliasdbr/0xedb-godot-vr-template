@@ -1,29 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://ttcmab2kyntb"]
+[gd_scene load_steps=12 format=3 uid="uid://ttcmab2kyntb"]
 
 [ext_resource type="PackedScene" uid="uid://cd4hw02rq6qsr" path="res://scenes/environment/small_rock.tscn" id="1_g7d1x"]
+[ext_resource type="Material" uid="uid://6ljj7436ywyj" path="res://resources/particles/particle_fire.tres" id="2_6tpw0"]
 [ext_resource type="AudioStream" uid="uid://imq8wm4j5mp0" path="res://resources/sounds/ambience/fire_ambience.ogg" id="2_u0ldj"]
 
-[sub_resource type="Gradient" id="Gradient_g7d1x"]
-offsets = PackedFloat32Array(0, 0.352201, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 0.8285, 0.51, 1, 1, 0.333333, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_u0ldj"]
-gradient = SubResource("Gradient_g7d1x")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.492877)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6tpw0"]
-transparency = 1
-blend_mode = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = SubResource("GradientTexture2D_u0ldj")
-billboard_mode = 2
-billboard_keep_scale = true
-
 [sub_resource type="QuadMesh" id="QuadMesh_g1amj"]
-material = SubResource("StandardMaterial3D_6tpw0")
+material = ExtResource("2_6tpw0")
 size = Vector2(0.3, 0.4)
 
 [sub_resource type="Curve" id="Curve_ikjv2"]

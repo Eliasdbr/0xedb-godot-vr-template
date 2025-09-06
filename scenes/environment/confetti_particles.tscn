@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://l4mh3nf6m1jm"]
+
+[ext_resource type="PlaneMesh" uid="uid://16by7dn0k5dt" path="res://resources/particles/particle_mesh_confetti.tres" id="1_bre20"]
+
+[sub_resource type="Curve" id="Curve_5jtl3"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="CPUParticles3D" type="CPUParticles3D"]
+emitting = false
+amount = 32
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+mesh = ExtResource("1_bre20")
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 15.0
+gravity = Vector3(0, -3, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 4.0
+angular_velocity_max = 1.0
+tangential_accel_min = -1.0
+tangential_accel_max = 1.0
+damping_min = 1.5
+damping_max = 2.0
+color = Color(1, 0, 0, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_5jtl3")
